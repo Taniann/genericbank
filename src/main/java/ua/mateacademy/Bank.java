@@ -10,38 +10,40 @@ public class Bank<T extends Asset> {
     private String address;
     private T asset;
 
-    public Bank(String name, String address) {
+    public Bank(String name, String address, T asset) {
         this.id = idCount++;
         this.name = name;
         this.address = address;
+        this.asset = asset;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public T getAsset() {
         return asset;
     }
 
+    public void refill() {
+        asset.refill();
+    }
+
+    public void withdraw() {
+        asset.withdraw();
+    }
+
+    public void checkBalance() {
+        asset.checkBalance();
+    }
 }
